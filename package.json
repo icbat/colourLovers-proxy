@@ -1,0 +1,17 @@
+{
+  "name": "colourlovers-proxy",
+  "version": "1.0.0",
+  "description": "A CORS-enabled proxy for colourlovers.com",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4",
+    "xml2js": "^0.4.19"
+  }
+}
