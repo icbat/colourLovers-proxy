@@ -3,6 +3,12 @@ const app = express()
 const request = require('request-promise-native')
 const parseString = require('xml2js').parseString
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+  next()
+});
+
 const placeToProxy = 'http://www.colourlovers.com/api/'
 
 app.get('/:pathParams*', (req, res, next) => {
@@ -40,12 +46,6 @@ const reconstructPath = (req, pathvar) => {
     }
     return path
 }
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-  next()
-});
 
 const port =  process.env.PORT || 3000
 app.listen(port, () => {
